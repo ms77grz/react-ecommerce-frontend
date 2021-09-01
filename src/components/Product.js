@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import Rating from './Rating';
 
 export default function Product({
-  _id,
+  id,
   image,
   name,
   rating,
@@ -12,11 +12,11 @@ export default function Product({
 }) {
   return (
     <Card className='my-3 p-3 rounded'>
-      <Link to={`/product/${_id}`}>
-        <Card.Img src={image} alt={name} />
+      <Link to={`/product/${id}`}>
+        <Card.Img src={image.url} alt={name} />
       </Link>
       <Card.Body>
-        <Link to={`/product/${_id}`}>
+        <Link to={`/product/${id}`}>
           <Card.Title as='div'>
             <strong>{name}</strong>
           </Card.Title>
