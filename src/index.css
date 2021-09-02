@@ -13,3 +13,10 @@ h3 {
 .rating i {
   color: #f8e825;
 }
+
+.loader {
+  height: 100px !important;
+  width: 100px !important;
+  margin: auto !important;
+  display: block !important;
+}
