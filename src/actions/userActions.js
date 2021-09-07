@@ -7,13 +7,28 @@ export const login = (email, password) => async dispatch => {
       type: userConstants.USER_LOGIN_REQUEST,
     });
 
-    const { data } = await axios.post('/users/login');
+    const { data } = await axios.post(
+      '/auth/local',
+      {
+        identifier: email,
+        password,
+      },
+      { withCredentials: true }
+    );
+
+    dispatch({
+      type: userConstants.USER_LOGIN_SUCCESS,
+      payload: data,
+    });
+
+    localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
+    console.log(error);
     dispatch({
       type: userConstants.USER_LOGIN_FAIL,
       payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
+        error.response && error.response.data.detail
+          ? error.response.data.detail
           : error.message,
     });
   }
