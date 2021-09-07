@@ -33,3 +33,9 @@ export const login = (email, password) => async dispatch => {
     });
   }
 };
+
+export const logout = () => async dispatch => {
+  await axios.post('/logout');
+  localStorage.removeItem('userInfo');
+  dispatch({ type: userConstants.USER_LOGOUT });
+};
