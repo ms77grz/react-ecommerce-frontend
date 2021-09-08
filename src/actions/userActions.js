@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as userConstants from '../constants/userConstants';
 
-export const login = (email, password) => async dispatch => {
+export const loginUser = (email, password) => async dispatch => {
   try {
     dispatch({
       type: userConstants.USER_LOGIN_REQUEST,
@@ -33,7 +33,7 @@ export const login = (email, password) => async dispatch => {
   }
 };
 
-export const logout = () => async dispatch => {
+export const logoutUser = () => async dispatch => {
   await axios.post('/logout');
   localStorage.removeItem('userInfo');
   dispatch({ type: userConstants.USER_LOGOUT });

@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { logout } from '../actions/userActions';
+import { logoutUser } from '../actions/userActions';
 
-export default function Header() {
+export default function Header({ history }) {
   const { userInfo } = useSelector(state => state.userLogin);
 
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
-    dispatch(logout());
+    dispatch(logoutUser());
   };
 
   return (

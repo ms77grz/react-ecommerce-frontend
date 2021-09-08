@@ -83,13 +83,13 @@ export default function RegisterScreen({ location, history }) {
             onChange={event => setConfirmPassword(event.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button type='submit' variant='primary'>
+        <Button className='mt-3' type='submit' variant='primary'>
           Register
         </Button>
       </Form>
       <Row className='py-3'>
         <Col>
-          Have an Account?
+          Have an Account?{' '}
           <Link to={redirect ? `/login?redirect=${redirect}` : `/login`}>
             Sign In
           </Link>
